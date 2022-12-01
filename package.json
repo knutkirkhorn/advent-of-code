@@ -1,0 +1,38 @@
+{
+  "private": true,
+  "name": "advent-of-code-2022",
+  "version": "1.0.0",
+  "description": "My solutions for advent of code 2022",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knutkirkhorn/advent-of-code-2022.git"
+  },
+  "keywords": [
+    "advent",
+    "of",
+    "code",
+    "aoc",
+    "2022"
+  ],
+  "author": "Knut Kirkhorn",
+  "type": "module",
+  "engines": {
+    "node": ">=18.11.0"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/knutkirkhorn/advent-of-code-2022/issues"
+  },
+  "homepage": "https://github.com/knutkirkhorn/advent-of-code-2022#readme",
+  "devDependencies": {
+    "eslint": "^8.28.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-unicorn": "^45.0.1"
+  }
+}
