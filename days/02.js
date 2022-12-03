@@ -1,4 +1,5 @@
 import {promises as fs} from 'node:fs';
+import {sum} from '../util.js';
 
 const fileContent = await fs.readFile('./days/02_input.txt', 'utf8');
 
@@ -38,10 +39,9 @@ function calculateScoreRoundOne(round) {
 	return outcomeScore + shapeScore;
 }
 
-const scoreOne = fileContent.split('\n')
+const scoreOne = sum(fileContent.split('\n')
 	.filter(line => line !== '')
-	.map(round => calculateScoreRoundOne(round))
-	.reduce((previous, current) => previous + current, 0);
+	.map(round => calculateScoreRoundOne(round)));
 console.log('Score round 1:', scoreOne);
 
 const outcomeDifference = {
@@ -65,8 +65,7 @@ function calculateScoreRoundTwo(round) {
 	return outcomeScore + shapeScore;
 }
 
-const scoreTwo = fileContent.split('\n')
+const scoreTwo = sum(fileContent.split('\n')
 	.filter(line => line !== '')
-	.map(round => calculateScoreRoundTwo(round))
-	.reduce((previous, current) => previous + current, 0);
+	.map(round => calculateScoreRoundTwo(round)));
 console.log('Score round 2:', scoreTwo);

@@ -1,4 +1,5 @@
 import {open} from 'node:fs/promises';
+import {sum} from '../util.js';
 
 const file = await open('./days/01_input.txt');
 const elfCalories = [];
@@ -17,5 +18,5 @@ const sortedCalories = elfCalories.sort((a, b) => b - a);
 const mostCarryingCalories = sortedCalories[0];
 console.log('Most carrying calories:', mostCarryingCalories);
 
-const sumTopThreeCarries = sortedCalories.slice(0, 3).reduce((previous, current) => previous + current, 0);
+const sumTopThreeCarries = sum(sortedCalories.slice(0, 3));
 console.log('Sum top three elves:', sumTopThreeCarries);

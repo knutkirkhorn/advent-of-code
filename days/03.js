@@ -1,5 +1,6 @@
 /* eslint-disable unicorn/prefer-spread */
 import {promises as fs} from 'node:fs';
+import {sum} from '../util.js';
 
 const fileContent = await fs.readFile('./days/03_input.txt', 'utf8');
 const rucksackContents = fileContent.split('\n').filter(line => line !== '');
@@ -17,7 +18,7 @@ const priorities = rucksackContents.map(rucksackContent => {
 	const itemPriority = convertCharToPriority(commonItemType);
 	return itemPriority;
 });
-const sumPriorities = priorities.reduce((previous, current) => previous + current, 0);
+const sumPriorities = sum(priorities);
 console.log('Sum priorities:', sumPriorities);
 
 const groupsOfThree = [];
@@ -40,5 +41,5 @@ const groupPriorities = groupsOfThree.map(group => {
 	const priority = convertCharToPriority(commonItemType);
 	return priority;
 });
-const groupSumPriorities = groupPriorities.reduce((previous, current) => previous + current, 0);
+const groupSumPriorities = sum(groupPriorities);
 console.log('Sum group priorities', groupSumPriorities);
