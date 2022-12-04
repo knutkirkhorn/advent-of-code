@@ -2,6 +2,16 @@
 
 > 🎄 My solutions for advent of code 2022
 
+## Run solutions
+
+```sh
+# Run given day (if current date is between 1. december and 25. december)
+node index.js
+
+# Run first day
+node index.js 1
+```
+
 ## Solutions
 
 - [Day 1: Calorie Counting](days/01)
