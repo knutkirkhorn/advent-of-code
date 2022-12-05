@@ -21,3 +21,4 @@ npm run dev
 - [Day 2: Rock Paper Scissors](days/02)
 - [Day 3: Rucksack Reorganization](days/03)
 - [Day 4: Camp Cleanup](days/04)
+- [Day 5: Supply Stacks](days/05)
