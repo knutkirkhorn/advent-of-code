@@ -10,6 +10,9 @@ node index.js
 
 # Run first day
 node index.js 1
+
+# Rerun on file change
+npm run dev
 ```
 
 ## Solutions
