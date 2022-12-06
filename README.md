@@ -22,3 +22,4 @@ npm run dev
 - [Day 3: Rucksack Reorganization](days/03)
 - [Day 4: Camp Cleanup](days/04)
 - [Day 5: Supply Stacks](days/05)
+- [Day 6: Tuning Trouble](days/06)
