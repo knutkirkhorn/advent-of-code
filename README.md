@@ -23,3 +23,4 @@ npm run dev
 - [Day 4: Camp Cleanup](days/04)
 - [Day 5: Supply Stacks](days/05)
 - [Day 6: Tuning Trouble](days/06)
+- [Day 7: No Space Left On Device](days/07)
