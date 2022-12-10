@@ -105,3 +105,6 @@ dist
 
 # Advent of Code specifics
 input.txt
+
+# VS Code
+.vscode
