@@ -21,7 +21,8 @@ async function fileExists(filePath) {
 
 async function downloadInputFile(dayNumber, inputFilePath) {
 	// Download input file
-	const inputUrl = `https://adventofcode.com/2022/day/${dayNumber}/input`;
+	const unpaddedDayNumber = Number(dayNumber);
+	const inputUrl = `https://adventofcode.com/2022/day/${unpaddedDayNumber}/input`;
 	const cookieJar = new CookieJar();
 	await cookieJar.setCookie(`session=${config.cookieSession}`, 'https://adventofcode.com');
 	const {body: inputContent} = await got(inputUrl, {cookieJar});
