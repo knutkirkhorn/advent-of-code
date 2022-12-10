@@ -4,6 +4,8 @@
 
 ## Run solutions
 
+Note: personal inputs needs to be added for each days directory with the file name `input.txt`.
+
 ```sh
 # Run given day (if current date is between 1. december and 25. december)
 node index.js
