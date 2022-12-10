@@ -5,6 +5,10 @@ import {fileURLToPath} from 'node:url';
 import {fork} from 'node:child_process';
 import fs from 'node:fs/promises';
 import logSymbols from 'log-symbols';
+// eslint-disable-next-line import/no-unresolved
+import got from 'got';
+import {CookieJar} from 'tough-cookie';
+import config from './config.js';
 
 async function fileExists(filePath) {
 	try {
@@ -13,6 +17,17 @@ async function fileExists(filePath) {
 	} catch {
 		return false;
 	}
+}
+
+async function downloadInputFile(dayNumber, inputFilePath) {
+	// Download input file
+	const inputUrl = `https://adventofcode.com/2022/day/${dayNumber}/input`;
+	const cookieJar = new CookieJar();
+	await cookieJar.setCookie(`session=${config.cookieSession}`, 'https://adventofcode.com');
+	const {body: inputContent} = await got(inputUrl, {cookieJar});
+
+	// Save input file
+	await fs.writeFile(inputFilePath, inputContent);
 }
 
 let dayNumberInput = process.argv[2];
@@ -44,6 +59,16 @@ const inputFileExists = await fileExists(dayInputFilePath);
 
 if (!inputFileExists) {
 	console.error(logSymbols.error, 'File `input.txt` does not exist');
+
+	// If the cookie session is set, download the input file
+	if (config.cookieSession) {
+		console.log(logSymbols.info, 'Downloading input...');
+		await downloadInputFile(dayNumber, dayInputFilePath);
+		console.log(logSymbols.success, 'Downloaded input');
+	} else {
+		console.log('Set the `SESSION_COOKIE` environment variable to download it');
+	}
+
 	process.exit(1);
 }
 

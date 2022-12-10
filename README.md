@@ -2,9 +2,11 @@
 
 > 🎄 My solutions for advent of code 2022
 
-## Run solutions
+## Setup (optional)
 
-Note: personal inputs needs to be added for each days directory with the file name `input.txt`.
+Set the `COOKIE_SESSION` environment variable to download input files if not found locally.
+
+## Run solutions
 
 ```sh
 # Run given day (if current date is between 1. december and 25. december)
