@@ -1,7 +1,19 @@
+/* eslint-disable unicorn/no-process-exit */
 import zeroFill from 'zero-fill';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {fork} from 'node:child_process';
+import fs from 'node:fs/promises';
+import logSymbols from 'log-symbols';
+
+async function fileExists(filePath) {
+	try {
+		const fileStat = await fs.stat(filePath);
+		return fileStat.isFile();
+	} catch {
+		return false;
+	}
+}
 
 let dayNumberInput = process.argv[2];
 const today = new Date();
@@ -17,7 +29,23 @@ if (!dayNumberInput) {
 
 const dayNumber = zeroFill(2, dayNumberInput);
 const directoryPath = path.dirname(fileURLToPath(import.meta.url));
-const dayFilePath = path.join(directoryPath, `days/${dayNumber}/${dayNumber}.js`);
+const dayDirectoryPath = path.join(directoryPath, `days/${dayNumber}`);
+const dayFilePath = path.join(dayDirectoryPath, `${dayNumber}.js`);
+const dayInputFilePath = path.join(dayDirectoryPath, 'input.txt');
+
+const dayFileExists = await fileExists(dayFilePath);
+
+if (!dayFileExists) {
+	console.error(logSymbols.error, `File \`${dayNumber}.js\` does not exist`);
+	process.exit(1);
+}
+
+const inputFileExists = await fileExists(dayInputFilePath);
+
+if (!inputFileExists) {
+	console.error(logSymbols.error, 'File `input.txt` does not exist');
+	process.exit(1);
+}
 
 // Run the selected day
 fork(dayFilePath);
