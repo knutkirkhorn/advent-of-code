@@ -1,7 +1,9 @@
-import {promises as fs} from 'node:fs';
-import {sum} from '../../util.js';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {readInput, sum} from '../../util.js';
 
-const fileContent = await fs.readFile('./days/02/input.txt', 'utf8');
+const directoryPath = path.dirname(fileURLToPath(import.meta.url));
+const fileContent = await readInput(directoryPath);
 
 const shapeBonus = {
 	X: 1, // Rock

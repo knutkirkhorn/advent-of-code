@@ -1,12 +1,10 @@
 /* eslint-disable no-param-reassign */
-import {promises as fs} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {sum} from '../../util.js';
+import {readInput, sum} from '../../util.js';
 
 const directoryPath = path.dirname(fileURLToPath(import.meta.url));
-const inputPath = path.join(directoryPath, 'input.txt');
-const input = await fs.readFile(inputPath, 'utf8');
+const input = await readInput(directoryPath);
 
 const lines = input
 	.split('\n')

@@ -1,8 +1,10 @@
 /* eslint-disable unicorn/prefer-spread */
-import {promises as fs} from 'node:fs';
-import {sum} from '../../util.js';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {readInput, sum} from '../../util.js';
 
-const fileContent = await fs.readFile('./days/03/input.txt', 'utf8');
+const directoryPath = path.dirname(fileURLToPath(import.meta.url));
+const fileContent = await readInput(directoryPath);
 const rucksackContents = fileContent.split('\n').filter(line => line !== '');
 
 function convertCharToPriority(char) {

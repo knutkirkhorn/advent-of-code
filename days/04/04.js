@@ -1,11 +1,10 @@
 /* eslint-disable unicorn/prevent-abbreviations */
-import {promises as fs} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {readInput} from '../../util.js';
 
 const directoryPath = path.dirname(fileURLToPath(import.meta.url));
-const inputPath = path.join(directoryPath, 'input.txt');
-const fileContent = await fs.readFile(inputPath, 'utf8');
+const fileContent = await readInput(directoryPath);
 const pairs = fileContent
 	.split('\n')
 	.filter(line => line !== '')
