@@ -30,3 +30,4 @@ npm run dev
 - [Day 7: No Space Left On Device](days/07)
 - [Day 8: Treetop Tree House](days/08)
 - [Day 10: Cathode-Ray Tube](days/10)
+- [Day 11: Monkey in the Middle](days/11)
