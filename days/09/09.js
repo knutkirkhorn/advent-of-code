@@ -12,9 +12,7 @@ const movements = input
 
 const head = {x: 0, y: 0};
 const tail = {x: 0, y: 0};
-
 const tailVisitedPositions = new Set();
-const tailVisitedPositionsArray = [];
 
 function updateTailPositionIfNeeded() {
 	// If two steps directly in one direction
@@ -82,7 +80,6 @@ for (const movement of movements) {
 		updateTailPositionIfNeeded();
 
 		tailVisitedPositions.add(`${tail.x},${tail.y}`);
-		tailVisitedPositionsArray.push(`${tail.x},${tail.y}`);
 	}
 }
 
