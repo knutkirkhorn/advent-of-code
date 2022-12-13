@@ -67,7 +67,7 @@ if (!inputFileExists) {
 		await downloadInputFile(dayNumber, dayInputFilePath);
 		console.log(logSymbols.success, 'Downloaded input');
 	} else {
-		console.log('Set the `SESSION_COOKIE` environment variable to download it');
+		console.log('Set the `COOKIE_SESSION` environment variable to download it');
 	}
 
 	process.exit(1);
