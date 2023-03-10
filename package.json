@@ -1,47 +1,47 @@
 {
-  "private": true,
-  "name": "advent-of-code-2022",
-  "version": "1.0.0",
-  "description": "My solutions for Advent of Code 2022",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint .",
-    "dev": "nodemon -e js,txt index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/knutkirkhorn/advent-of-code-2022.git"
-  },
-  "keywords": [
-    "advent",
-    "of",
-    "code",
-    "aoc",
-    "2022"
-  ],
-  "author": "Knut Kirkhorn",
-  "type": "module",
-  "engines": {
-    "node": ">=18.11.0"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/knutkirkhorn/advent-of-code-2022/issues"
-  },
-  "homepage": "https://github.com/knutkirkhorn/advent-of-code-2022#readme",
-  "dependencies": {
-    "dotenv": "^16.0.3",
-    "got": "^12.5.3",
-    "log-symbols": "^5.1.0",
-    "tough-cookie": "^4.1.2",
-    "zero-fill": "^2.2.4"
-  },
-  "devDependencies": {
-    "eslint": "^8.28.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-unicorn": "^45.0.1",
-    "nodemon": "^2.0.20"
-  }
+	"private": true,
+	"name": "advent-of-code-2022",
+	"version": "1.0.0",
+	"description": "My solutions for Advent of Code 2022",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "eslint .",
+		"dev": "nodemon -e js,txt index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/knutkirkhorn/advent-of-code-2022.git"
+	},
+	"keywords": [
+		"advent",
+		"of",
+		"code",
+		"aoc",
+		"2022"
+	],
+	"author": "Knut Kirkhorn",
+	"type": "module",
+	"engines": {
+		"node": ">=18.11.0"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/knutkirkhorn/advent-of-code-2022/issues"
+	},
+	"homepage": "https://github.com/knutkirkhorn/advent-of-code-2022#readme",
+	"dependencies": {
+		"dotenv": "^16.0.3",
+		"got": "^12.5.3",
+		"log-symbols": "^5.1.0",
+		"tough-cookie": "^4.1.2",
+		"zero-fill": "^2.2.4"
+	},
+	"devDependencies": {
+		"eslint": "^8.28.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-unicorn": "^45.0.1",
+		"nodemon": "^2.0.20"
+	}
 }
