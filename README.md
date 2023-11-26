@@ -1,6 +1,6 @@
-# advent-of-code-2022
+# advent-of-code
 
-> 🎄 My solutions for [Advent of Code](https://adventofcode.com) 2022
+> 🎄 My solutions for [Advent of Code](https://adventofcode.com)
 
 ## Setup (optional)
 
@@ -20,6 +20,12 @@ npm run dev
 ```
 
 ## Solutions
+
+### 2023
+
+TODO
+
+### 2022
 
 - [Day 1: Calorie Counting](days/01)
 - [Day 2: Rock Paper Scissors](days/02)

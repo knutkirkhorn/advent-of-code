@@ -1,8 +1,8 @@
 {
 	"private": true,
-	"name": "advent-of-code-2022",
+	"name": "advent-of-code",
 	"version": "1.0.0",
-	"description": "My solutions for Advent of Code 2022",
+	"description": "My solutions for Advent of Code",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
@@ -11,14 +11,15 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/knutkirkhorn/advent-of-code-2022.git"
+		"url": "git+https://github.com/knutkirkhorn/advent-of-code.git"
 	},
 	"keywords": [
 		"advent",
 		"of",
 		"code",
 		"aoc",
-		"2022"
+		"2022",
+		"2023"
 	],
 	"author": "Knut Kirkhorn",
 	"type": "module",
@@ -27,9 +28,9 @@
 	},
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/knutkirkhorn/advent-of-code-2022/issues"
+		"url": "https://github.com/knutkirkhorn/advent-of-code/issues"
 	},
-	"homepage": "https://github.com/knutkirkhorn/advent-of-code-2022#readme",
+	"homepage": "https://github.com/knutkirkhorn/advent-of-code#readme",
 	"dependencies": {
 		"dotenv": "^16.0.3",
 		"got": "^12.5.3",
