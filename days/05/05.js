@@ -37,7 +37,7 @@ for (const rearrangement of rearrangements) {
 	}
 }
 
-const rearrangedTopCrates = Object.values(arrangedStacks).map(stack => stack[stack.length - 1]).join('');
+const rearrangedTopCrates = Object.values(arrangedStacks).map(stack => stack.at(-1)).join('');
 console.log('Rearranged top crates:', rearrangedTopCrates);
 
 const multipleArrangedStacks = {};
@@ -63,5 +63,5 @@ for (const rearrangement of rearrangements) {
 	multipleArrangedStacks[from].splice(multipleArrangedStacks[from].length - amount, multipleArrangedStacks[from].length);
 }
 
-const multipleRearrangedTopCrates = Object.values(multipleArrangedStacks).map(stack => stack[stack.length - 1]).join('');
+const multipleRearrangedTopCrates = Object.values(multipleArrangedStacks).map(stack => stack.at(-1)).join('');
 console.log('Multiple rearranged top crates:', multipleRearrangedTopCrates);

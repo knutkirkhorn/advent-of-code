@@ -110,7 +110,7 @@ function simulateMovements() {
 
 simulateMovements();
 
-console.log('Distinct positions tail visited:', tailVisitedPositions[tailVisitedPositions.length - 1].size);
+console.log('Distinct positions tail visited:', tailVisitedPositions.at(-1).size);
 
 // Reset tails and visited positions
 head.x = 0;
@@ -126,4 +126,4 @@ for (let index = 0; index < 9; index++) {
 
 simulateMovements();
 
-console.log('Distinct positions tail #9 visited:', tailVisitedPositions[tailVisitedPositions.length - 1].size);
+console.log('Distinct positions tail #9 visited:', tailVisitedPositions.at(-1).size);
