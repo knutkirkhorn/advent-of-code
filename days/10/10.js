@@ -38,7 +38,7 @@ const interestingSignalStrengths = [
 	registerValues[100] * 100,
 	registerValues[140] * 140,
 	registerValues[180] * 180,
-	registerValues[220] * 220
+	registerValues[220] * 220,
 ];
 const sumInterestingSignalStrengths = sum(interestingSignalStrengths);
 console.log('Sum interesting signal strengths:', sumInterestingSignalStrengths);

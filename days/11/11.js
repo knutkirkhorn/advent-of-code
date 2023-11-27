@@ -22,14 +22,14 @@ const monkeys = input
 			items,
 			operation: {
 				type: amount === 'old' ? '**' : type,
-				amount: Number(amount)
+				amount: Number(amount),
 			},
 			test: {
 				divisible_by: divisibleBy,
 				true: divisibleTrue,
-				false: divisibleFalse
+				false: divisibleFalse,
 			},
-			inspections: 0
+			inspections: 0,
 		};
 	});
 

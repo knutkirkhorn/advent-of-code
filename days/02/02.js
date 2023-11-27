@@ -8,25 +8,25 @@ const fileContent = await readInput(directoryPath);
 const shapeBonus = {
 	X: 1, // Rock
 	Y: 2, // Paper
-	Z: 3 // Scissors
+	Z: 3, // Scissors
 };
 
 const opponentIndexes = {
 	A: 0, // Rock
 	B: 1, // Paper
-	C: 2 // Scissors
+	C: 2, // Scissors
 };
 
 const myIndexes = {
 	X: 0, // Rock
 	Y: 1, // Paper
-	Z: 2 // Scissors
+	Z: 2, // Scissors
 };
 
 const scoreDifferences = {
 	0: 3, // Draw
 	1: 6, // Won
-	2: 0 // Lost
+	2: 0, // Lost
 };
 
 function modulo(number1, number2) {
@@ -49,13 +49,13 @@ console.log('Score round 1:', scoreOne);
 const outcomeDifference = {
 	X: -1, // Lose
 	Y: 0, // Draw
-	Z: 1 // Win
+	Z: 1, // Win
 };
 
 const myIndexesReversed = {
 	0: 'X',
 	1: 'Y',
-	2: 'Z'
+	2: 'Z',
 };
 
 function calculateScoreRoundTwo(round) {

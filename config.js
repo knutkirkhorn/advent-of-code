@@ -4,5 +4,5 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export default {
-	cookieSession: process.env.COOKIE_SESSION || ''
+	cookieSession: process.env.COOKIE_SESSION || '',
 };

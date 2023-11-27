@@ -29,7 +29,7 @@ for (let index = 0; index < rucksackContents.length; index += 3) {
 	groupsOfThree.push([
 		rucksackContents[index],
 		rucksackContents[index + 1],
-		rucksackContents[index + 2]
+		rucksackContents[index + 2],
 	]);
 }
 
