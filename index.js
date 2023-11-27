@@ -67,9 +67,8 @@ if (!inputFileExists) {
 		console.log(logSymbols.success, 'Downloaded input');
 	} else {
 		console.log('Set the `COOKIE_SESSION` environment variable to download it');
+		process.exit(1);
 	}
-
-	process.exit(1);
 }
 
 // Run the selected day
