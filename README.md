@@ -12,8 +12,11 @@ Set the `COOKIE_SESSION` environment variable to download input files if not fou
 # Run given day (if current date is between 1. december and 25. december)
 node index.js
 
-# Run first day
+# Run first day of current year
 node index.js 1
+
+# Run first day of 2022
+node index.js 2022 1
 
 # Rerun on file change
 npm run dev

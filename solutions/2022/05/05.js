@@ -2,7 +2,7 @@
 /* eslint-disable unicorn/prevent-abbreviations */
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {readInput} from '../../util.js';
+import {readInput} from '../../../util.js';
 
 const directoryPath = path.dirname(fileURLToPath(import.meta.url));
 const fileContent = await readInput(directoryPath);

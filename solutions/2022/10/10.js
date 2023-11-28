@@ -1,6 +1,6 @@
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {readInput, sum} from '../../util.js';
+import {readInput, sum} from '../../../util.js';
 
 const directoryPath = path.dirname(fileURLToPath(import.meta.url));
 const input = await readInput(directoryPath);

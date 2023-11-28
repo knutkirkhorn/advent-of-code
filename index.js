@@ -19,9 +19,9 @@ async function fileExists(filePath) {
 	}
 }
 
-async function downloadInputFile(dayNumber, inputFilePath) {
+async function downloadInputFile(year, dayNumber, inputFilePath) {
 	const unpaddedDayNumber = Number(dayNumber);
-	const inputUrl = `https://adventofcode.com/2022/day/${unpaddedDayNumber}/input`;
+	const inputUrl = `https://adventofcode.com/${year}/day/${unpaddedDayNumber}/input`;
 	const cookieJar = new CookieJar();
 	await cookieJar.setCookie(`session=${config.cookieSession}`, 'https://adventofcode.com');
 	const {body: inputContent} = await got(inputUrl, {cookieJar});
@@ -30,12 +30,25 @@ async function downloadInputFile(dayNumber, inputFilePath) {
 	await fs.writeFile(inputFilePath, inputContent);
 }
 
-let dayNumberInput = process.argv[2];
+const yearInput = process.argv.length > 3
+	? process.argv[2]
+	: new Date().getFullYear();
+let dayNumberInput = process.argv.length > 3
+	? process.argv[3]
+	: process.argv[2];
 const today = new Date();
 
 // Default to current day if within december
 if (!dayNumberInput && today.getMonth() === 11 && today.getDate() <= 25) {
 	dayNumberInput = today.getDate();
+}
+
+if (yearInput < 2015 || yearInput > today.getFullYear()) {
+	throw new Error('Year must be between 2015 and current year');
+}
+
+if (dayNumberInput < 1 || dayNumberInput > 25) {
+	throw new Error('Day must be between 1 and 25');
 }
 
 if (!dayNumberInput) {
@@ -44,14 +57,15 @@ if (!dayNumberInput) {
 
 const dayNumber = zeroFill(2, dayNumberInput);
 const directoryPath = path.dirname(fileURLToPath(import.meta.url));
-const dayDirectoryPath = path.join(directoryPath, `days/${dayNumber}`);
+const yearDirectoryPath = path.join(directoryPath, `solutions/${yearInput}`);
+const dayDirectoryPath = path.join(yearDirectoryPath, `${dayNumber}`);
 const dayFilePath = path.join(dayDirectoryPath, `${dayNumber}.js`);
 const dayInputFilePath = path.join(dayDirectoryPath, 'input.txt');
 
 const dayFileExists = await fileExists(dayFilePath);
 
 if (!dayFileExists) {
-	console.error(logSymbols.error, `File \`${dayNumber}.js\` does not exist`);
+	console.error(logSymbols.error, `File \`./solutions/${yearInput}/${dayNumber}/${dayNumber}.js\` does not exist`);
 	process.exit(1);
 }
 
@@ -63,7 +77,7 @@ if (!inputFileExists) {
 	// If the cookie session is set, download the input file
 	if (config.cookieSession) {
 		console.log(logSymbols.info, 'Downloading input...');
-		await downloadInputFile(dayNumber, dayInputFilePath);
+		await downloadInputFile(yearInput, dayNumber, dayInputFilePath);
 		console.log(logSymbols.success, 'Downloaded input');
 	} else {
 		console.log('Set the `COOKIE_SESSION` environment variable to download it');

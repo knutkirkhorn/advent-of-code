@@ -1,7 +1,7 @@
 import {open} from 'node:fs/promises';
-import {sum} from '../../util.js';
+import {sum} from '../../../util.js';
 
-const file = await open('./days/01/input.txt');
+const file = await open('./solutions/2022/01/input.txt');
 const elfCalories = [];
 let currentElfCalories = 0;
 
