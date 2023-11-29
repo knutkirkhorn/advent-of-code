@@ -55,6 +55,10 @@ if (!dayNumberInput) {
 	throw new Error('Need to specify day');
 }
 
+if (Number(yearInput) === today.getFullYear() && today.getMonth() !== 11) {
+	throw new Error('It is not December for current year yet');
+}
+
 const dayNumber = zeroFill(2, dayNumberInput);
 const directoryPath = path.dirname(fileURLToPath(import.meta.url));
 const yearDirectoryPath = path.join(directoryPath, `solutions/${yearInput}`);
