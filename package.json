@@ -33,7 +33,7 @@
 	"homepage": "https://github.com/knutkirkhorn/advent-of-code#readme",
 	"dependencies": {
 		"dotenv": "^16.3.1",
-		"got": "^13.0.0",
+		"got": "^14.0.0",
 		"log-symbols": "^6.0.0",
 		"make-dir": "^4.0.0",
 		"tough-cookie": "^4.1.3",
