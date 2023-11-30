@@ -56,9 +56,10 @@ let dayNumberInput = process.argv.length > 3
 	? process.argv[3]
 	: process.argv[2];
 const today = new Date();
+const isWithinDecember = today.getMonth() === 11 && today.getDate() <= 25;
 
 // Default to current day if within december
-if (!dayNumberInput && today.getMonth() === 11 && today.getDate() <= 25) {
+if (!dayNumberInput && isWithinDecember) {
 	dayNumberInput = today.getDate();
 }
 
