@@ -8,6 +8,7 @@ import logSymbols from 'log-symbols';
 // eslint-disable-next-line import/no-unresolved
 import got from 'got';
 import {CookieJar} from 'tough-cookie';
+import makeDir from 'make-dir';
 import config from './config.js';
 
 async function fileExists(filePath) {
@@ -28,6 +29,24 @@ async function downloadInputFile(year, dayNumber, inputFilePath) {
 
 	// Save input file
 	await fs.writeFile(inputFilePath, inputContent);
+}
+
+async function directoryExists(directoryPath) {
+	try {
+		const directoryStat = await fs.stat(directoryPath);
+		return directoryStat.isDirectory();
+	} catch {
+		return false;
+	}
+}
+
+async function checkAndCreateDayDirectories(dayDirectoryPath) {
+	const dayDirectoryExists = await directoryExists(dayDirectoryPath);
+
+	if (dayDirectoryExists) return;
+
+	console.log('Creating day directory...');
+	await makeDir(dayDirectoryPath);
 }
 
 const yearInput = process.argv.length > 3
@@ -66,6 +85,7 @@ const dayDirectoryPath = path.join(yearDirectoryPath, `${dayNumber}`);
 const dayFilePath = path.join(dayDirectoryPath, `${dayNumber}.js`);
 const dayInputFilePath = path.join(dayDirectoryPath, 'input.txt');
 
+await checkAndCreateDayDirectories(dayDirectoryPath);
 const dayFileExists = await fileExists(dayFilePath);
 
 if (!dayFileExists) {
