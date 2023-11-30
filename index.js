@@ -93,7 +93,8 @@ const dayFileExists = await fileExists(dayFilePath);
 if (!dayFileExists) {
 	console.error(logSymbols.error, `File \`./solutions/${yearInput}/${dayNumber}/${dayNumber}.js\` does not exist`);
 	console.log('Creating day file...');
-	await fs.writeFile(dayFilePath, '');
+	const dayTemplateContent = await fs.readFile(path.join(directoryPath, 'template.js'), 'utf8');
+	await fs.writeFile(dayFilePath, dayTemplateContent);
 	console.log(logSymbols.success, `Created day file (\`./solutions/${yearInput}/${dayNumber}/${dayNumber}.js\`)`);
 }
 
