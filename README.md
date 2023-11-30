@@ -41,3 +41,7 @@ TODO
 - [Day 9: Rope Bridge](solutions/2022/09)
 - [Day 10: Cathode-Ray Tube](solutions/2022/10)
 - [Day 11: Monkey in the Middle](solutions/2022/11)
+
+### 2021
+
+- [Day 1: Sonar Sweep](solutions/2021/01)
