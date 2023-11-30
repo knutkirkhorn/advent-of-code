@@ -47,6 +47,7 @@ async function checkAndCreateDayDirectories(dayDirectoryPath) {
 
 	console.log('Creating day directory...');
 	await makeDir(dayDirectoryPath);
+	console.log(logSymbols.success, 'Created day directory');
 }
 
 const yearInput = process.argv.length > 3
