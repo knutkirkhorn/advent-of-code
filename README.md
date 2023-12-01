@@ -26,7 +26,7 @@ npm run dev
 
 ### 2023
 
-TODO
+- [Day 1: Trebuchet?!](solutions/2023/01)
 
 ### 2022
 
