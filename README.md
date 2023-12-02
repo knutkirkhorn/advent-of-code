@@ -27,6 +27,7 @@ npm run dev
 ### 2023
 
 - [Day 1: Trebuchet?!](solutions/2023/01)
+- [Day 2: Cube Conundrum](solutions/2023/02)
 
 ### 2022
 
