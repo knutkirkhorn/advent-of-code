@@ -1,16 +1,15 @@
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {readInput} from '../../../util.js';
+import {matchNumbers, readInput} from '../../../util.js';
 
 const directoryPath = path.dirname(fileURLToPath(import.meta.url));
 const input = await readInput(directoryPath);
 
-const numberRegex = /\d+/g;
 const lines = input
 	.trim()
 	.split('\n');
 const races = [];
-const [times, distances] = lines.map(line => line.split(':')[1].match(numberRegex).map(Number));
+const [times, distances] = lines.map(line => matchNumbers(line.split(':')[1]));
 
 for (const [index, time] of times.entries()) {
 	races.push({

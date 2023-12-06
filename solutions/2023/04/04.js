@@ -1,13 +1,11 @@
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {readInput, sum} from '../../../util.js';
+import {matchNumbers, readInput, sum} from '../../../util.js';
 
 const directoryPath = path.dirname(fileURLToPath(import.meta.url));
 const input = await readInput(directoryPath);
 
 const cardDataRegex = /Card( +)(\d+):( +)/;
-const numberRegex = /\d+/g;
-
 const scratchCards = input
 	.trim()
 	.split('\n')
@@ -15,7 +13,7 @@ const scratchCards = input
 		const cardData = card
 			.replace(cardDataRegex, '')
 			.split('|')
-			.map(data => data.match(numberRegex));
+			.map(data => matchNumbers(data));
 		const [winningNumbers, placedNumbers] = cardData;
 		return {
 			winningNumbers,
