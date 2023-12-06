@@ -8,3 +8,9 @@ export async function readInput(directoryPath) {
 	const input = await fs.readFile(inputPath, 'utf8');
 	return input;
 }
+
+export function matchNumbers(input) {
+	const numberRegex = /\d+/g;
+	const matches = input.match(numberRegex);
+	return matches.map(Number);
+}
