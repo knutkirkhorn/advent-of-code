@@ -26,25 +26,25 @@ npm run dev
 
 ### 2023
 
-- [Day 1: Trebuchet?!](solutions/2023/01)
-- [Day 2: Cube Conundrum](solutions/2023/02)
-- [Day 4: Scratchcards](solutions/2023/04)
-- [Day 6: Wait For It](solutions/2023/06)
+- [Day 1: Trebuchet?!](solutions/2023/01/01.js)
+- [Day 2: Cube Conundrum](solutions/2023/02/02.js)
+- [Day 4: Scratchcards](solutions/2023/04/04.js)
+- [Day 6: Wait For It](solutions/2023/06/06.js)
 
 ### 2022
 
-- [Day 1: Calorie Counting](solutions/2022/01)
-- [Day 2: Rock Paper Scissors](solutions/2022/02)
-- [Day 3: Rucksack Reorganization](solutions/2022/03)
-- [Day 4: Camp Cleanup](solutions/2022/04)
-- [Day 5: Supply Stacks](solutions/2022/05)
-- [Day 6: Tuning Trouble](solutions/2022/06)
-- [Day 7: No Space Left On Device](solutions/2022/07)
-- [Day 8: Treetop Tree House](solutions/2022/08)
-- [Day 9: Rope Bridge](solutions/2022/09)
-- [Day 10: Cathode-Ray Tube](solutions/2022/10)
-- [Day 11: Monkey in the Middle](solutions/2022/11)
+- [Day 1: Calorie Counting](solutions/2022/01/01.js)
+- [Day 2: Rock Paper Scissors](solutions/2022/02/02.js)
+- [Day 3: Rucksack Reorganization](solutions/2022/03/03.js)
+- [Day 4: Camp Cleanup](solutions/2022/04/04.js)
+- [Day 5: Supply Stacks](solutions/2022/05/05.js)
+- [Day 6: Tuning Trouble](solutions/2022/06/06.js)
+- [Day 7: No Space Left On Device](solutions/2022/07/07.js)
+- [Day 8: Treetop Tree House](solutions/2022/08/08.js)
+- [Day 9: Rope Bridge](solutions/2022/09/09.js)
+- [Day 10: Cathode-Ray Tube](solutions/2022/10/10.js)
+- [Day 11: Monkey in the Middle](solutions/2022/11/11.js)
 
 ### 2021
 
-- [Day 1: Sonar Sweep](solutions/2021/01)
+- [Day 1: Sonar Sweep](solutions/2021/01/01.js)
