@@ -6,7 +6,7 @@ const directoryPath = path.dirname(fileURLToPath(import.meta.url));
 const input = await readInput(directoryPath);
 
 const cardDataRegex = /Card( +)(\d+):( +)/;
-const singleAndDoubleDigitNumberRegex = /\d{1,2}/g;
+const numberRegex = /\d+/g;
 
 const scratchCards = input
 	.trim()
@@ -15,7 +15,7 @@ const scratchCards = input
 		const cardData = card
 			.replace(cardDataRegex, '')
 			.split('|')
-			.map(data => data.match(singleAndDoubleDigitNumberRegex));
+			.map(data => data.match(numberRegex));
 		const [winningNumbers, placedNumbers] = cardData;
 		return {
 			winningNumbers,
