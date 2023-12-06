@@ -40,6 +40,53 @@ function isNumberAdjacentToSymbol(xPosition, yPosition) {
 	return false;
 }
 
+function isCharacterAsterisk(character) {
+	if (Number.isInteger(Number(character))) return false;
+
+	return character === '*';
+}
+
+function getAdjacentAsterisks(xPosition, yPosition) {
+	const adjacentAsterisks = [];
+	// Check direct neighbors
+	// Check left
+	if (xPosition > 0 && isCharacterAsterisk(engineSchematic[yPosition][xPosition - 1])) {
+		adjacentAsterisks.push({x: xPosition - 1, y: yPosition});
+	}
+	// Check right
+	if (xPosition < engineSchematic[yPosition].length - 1 && isCharacterAsterisk(engineSchematic[yPosition][xPosition + 1])) {
+		adjacentAsterisks.push({x: xPosition + 1, y: yPosition});
+	}
+	// Check above
+	if (yPosition > 0 && isCharacterAsterisk(engineSchematic[yPosition - 1][xPosition])) {
+		adjacentAsterisks.push({x: xPosition, y: yPosition - 1});
+	}
+	// Check below
+	if (yPosition < engineSchematic.length - 1 && isCharacterAsterisk(engineSchematic[yPosition + 1][xPosition])) {
+		adjacentAsterisks.push({x: xPosition, y: yPosition + 1});
+	}
+
+	// Check diagonally neighbors
+	// Check top left
+	if (yPosition > 0 && xPosition > 0 && isCharacterAsterisk(engineSchematic[yPosition - 1][xPosition - 1])) {
+		adjacentAsterisks.push({x: xPosition - 1, y: yPosition - 1});
+	}
+	// Check top right
+	if (yPosition > 0 && xPosition < engineSchematic[yPosition].length - 1 && isCharacterAsterisk(engineSchematic[yPosition - 1][xPosition + 1])) {
+		adjacentAsterisks.push({x: xPosition + 1, y: yPosition - 1});
+	}
+	// Check bottom left
+	if (yPosition < engineSchematic.length - 1 && xPosition > 0 && isCharacterAsterisk(engineSchematic[yPosition + 1][xPosition - 1])) {
+		adjacentAsterisks.push({x: xPosition - 1, y: yPosition + 1});
+	}
+	// Check bottom right
+	if (yPosition < engineSchematic.length - 1 && xPosition < engineSchematic[yPosition].length - 1 && isCharacterAsterisk(engineSchematic[yPosition + 1][xPosition + 1])) {
+		adjacentAsterisks.push({x: xPosition + 1, y: yPosition + 1});
+	}
+
+	return adjacentAsterisks;
+}
+
 const partNumbers = [];
 
 for (const [yPosition, line] of engineSchematic.entries()) {
@@ -76,3 +123,46 @@ for (const [yPosition, line] of engineSchematic.entries()) {
 
 const sumOfPartNumbers = sum(partNumbers);
 console.log('Sum of part numbers:', sumOfPartNumbers);
+
+const gears = {};
+
+for (const [yPosition, line] of engineSchematic.entries()) {
+	let currentNumber;
+	let adjacentAsterisks = [];
+
+	for (const [xPosition, character] of line.entries()) {
+		if (Number.isInteger(Number(character))) {
+			currentNumber = `${currentNumber || ''}${character}`;
+			const currentAdjacentAsterisks = getAdjacentAsterisks(xPosition, yPosition);
+			adjacentAsterisks.push(...currentAdjacentAsterisks);
+			continue;
+		}
+
+		if (currentNumber) {
+			for (const adjacentAsterisk of adjacentAsterisks) {
+				const index = `${adjacentAsterisk.x}-${adjacentAsterisk.y}`;
+				gears[index] = gears[index] || new Set();
+				gears[index].add(Number(currentNumber));
+			}
+			currentNumber = undefined;
+			adjacentAsterisks = [];
+		}
+	}
+
+	if (currentNumber) {
+		for (const adjacentAsterisk of adjacentAsterisks) {
+			const index = `${adjacentAsterisk.x}-${adjacentAsterisk.y}`;
+			gears[index] = gears[index] || new Set();
+			gears[index].add(Number(currentNumber));
+		}
+		currentNumber = undefined;
+		adjacentAsterisks = [];
+	}
+}
+
+const gearRatios = Object.values(gears)
+	.filter(gear => gear.size === 2)
+	.map(gear => [...gear])
+	.map(gear => gear[0] * gear[1]);
+const sumGearRatios = sum(gearRatios);
+console.log('Sum gear ratios:', sumGearRatios);
