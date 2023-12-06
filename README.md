@@ -28,6 +28,7 @@ npm run dev
 
 - [Day 1: Trebuchet?!](solutions/2023/01/01.js)
 - [Day 2: Cube Conundrum](solutions/2023/02/02.js)
+- [Day 3: Gear Ratios](solutions/2023/03/03.js)
 - [Day 4: Scratchcards](solutions/2023/04/04.js)
 - [Day 5: If You Give A Seed A Fertilizer](solutions/2023/05/05.js)
 - [Day 6: Wait For It](solutions/2023/06/06.js)
