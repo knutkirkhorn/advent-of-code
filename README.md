@@ -32,6 +32,7 @@ npm run dev
 - [Day 4: Scratchcards](solutions/2023/04/04.js)
 - [Day 5: If You Give A Seed A Fertilizer](solutions/2023/05/05.js)
 - [Day 6: Wait For It](solutions/2023/06/06.js)
+- [Day 8: Haunted Wasteland](solutions/2023/08/08.js)
 
 ### 2022
 
