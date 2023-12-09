@@ -62,3 +62,24 @@ for (const game of games) {
 
 const sumPossibleGamesIds = sum(possibleGameIds);
 console.log('Sum possible game IDs:', sumPossibleGamesIds);
+
+let sumFewestPossibleCubes = 0;
+
+for (const game of games) {
+	const currentFewestPossibleCubes = {};
+
+	for (const gameCubeSet of game.gameCubeSets) {
+		for (const color of Object.keys(gameCubeSet)) {
+			currentFewestPossibleCubes[color] = currentFewestPossibleCubes[color] ? Math.max(
+				currentFewestPossibleCubes[color],
+				gameCubeSet[color],
+			) : gameCubeSet[color];
+		}
+	}
+
+	const powerOfCubes = Object.values(currentFewestPossibleCubes)
+		.reduce((accumulator, current) => accumulator * current, 1);
+	sumFewestPossibleCubes += powerOfCubes;
+}
+
+console.log('The sum of fewest possible cubes for each game:', sumFewestPossibleCubes);
