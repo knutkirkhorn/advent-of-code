@@ -14,7 +14,9 @@ function findDistinctCharactersPosition(numberOfDistinctCharacters) {
 		const currentCharacter = input[index];
 
 		if (distinctCharacters.includes(currentCharacter)) {
-			distinctCharacters = distinctCharacters.slice(distinctCharacters.indexOf(currentCharacter) + 1);
+			distinctCharacters = distinctCharacters.slice(
+				distinctCharacters.indexOf(currentCharacter) + 1,
+			);
 		}
 
 		distinctCharacters.push(currentCharacter);

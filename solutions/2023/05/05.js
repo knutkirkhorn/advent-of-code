@@ -5,9 +5,7 @@ import {matchNumbers, readInput} from '../../../util.js';
 const directoryPath = path.dirname(fileURLToPath(import.meta.url));
 const input = await readInput(directoryPath);
 
-const seedMap = input
-	.trim()
-	.split('\n\n');
+const seedMap = input.trim().split('\n\n');
 const initialSeeds = matchNumbers(seedMap[0]);
 
 function convertInputToMap(seedMapInput) {
@@ -35,8 +33,13 @@ function findSeedLocationNumber(seed) {
 		let destination;
 
 		for (const mapLine of currentSeedMap) {
-			if (mapLine.sourceRangeStart <= currentPosition && currentPosition <= (mapLine.sourceRangeStart + mapLine.rangeLength)) {
-				destination = mapLine.destinationRangeStart + (currentPosition - mapLine.sourceRangeStart);
+			if (
+				mapLine.sourceRangeStart <= currentPosition &&
+				currentPosition <= mapLine.sourceRangeStart + mapLine.rangeLength
+			) {
+				destination =
+					mapLine.destinationRangeStart +
+					(currentPosition - mapLine.sourceRangeStart);
 				break;
 			}
 		}
@@ -67,5 +70,9 @@ function findLowestSeedLocationNumber(seeds) {
 	return lowestLocationNumber;
 }
 
-const lowestInitialSeedsLocationNumber = findLowestSeedLocationNumber(initialSeeds);
-console.log('Lowest location number for initial seeds:', lowestInitialSeedsLocationNumber);
+const lowestInitialSeedsLocationNumber =
+	findLowestSeedLocationNumber(initialSeeds);
+console.log(
+	'Lowest location number for initial seeds:',
+	lowestInitialSeedsLocationNumber,
+);

@@ -1,14 +1,14 @@
 /* eslint-disable unicorn/no-process-exit */
-import zeroFill from 'zero-fill';
-import path from 'node:path';
-import {fileURLToPath} from 'node:url';
 import {fork} from 'node:child_process';
 import fs from 'node:fs/promises';
-import logSymbols from 'log-symbols';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
 // eslint-disable-next-line import/no-unresolved
 import got from 'got';
-import {CookieJar} from 'tough-cookie';
+import logSymbols from 'log-symbols';
 import makeDir from 'make-dir';
+import {CookieJar} from 'tough-cookie';
+import zeroFill from 'zero-fill';
 import config from './config.js';
 
 async function fileExists(filePath) {
@@ -24,7 +24,10 @@ async function downloadInputFile(year, dayNumber, inputFilePath) {
 	const unpaddedDayNumber = Number(dayNumber);
 	const inputUrl = `https://adventofcode.com/${year}/day/${unpaddedDayNumber}/input`;
 	const cookieJar = new CookieJar();
-	await cookieJar.setCookie(`session=${config.cookieSession}`, 'https://adventofcode.com');
+	await cookieJar.setCookie(
+		`session=${config.cookieSession}`,
+		'https://adventofcode.com',
+	);
 	const {body: inputContent} = await got(inputUrl, {cookieJar});
 
 	// Save input file
@@ -50,12 +53,10 @@ async function checkAndCreateDayDirectories(dayDirectoryPath) {
 	console.log(logSymbols.success, 'Created day directory');
 }
 
-const yearInput = process.argv.length > 3
-	? process.argv[2]
-	: new Date().getFullYear();
-let dayNumberInput = process.argv.length > 3
-	? process.argv[3]
-	: process.argv[2];
+const yearInput =
+	process.argv.length > 3 ? process.argv[2] : new Date().getFullYear();
+let dayNumberInput =
+	process.argv.length > 3 ? process.argv[3] : process.argv[2];
 const today = new Date();
 const isWithinDecember = today.getMonth() === 11 && today.getDate() <= 25;
 
@@ -91,11 +92,20 @@ await checkAndCreateDayDirectories(dayDirectoryPath);
 const dayFileExists = await fileExists(dayFilePath);
 
 if (!dayFileExists) {
-	console.error(logSymbols.error, `File \`./solutions/${yearInput}/${dayNumber}/${dayNumber}.js\` does not exist`);
+	console.error(
+		logSymbols.error,
+		`File \`./solutions/${yearInput}/${dayNumber}/${dayNumber}.js\` does not exist`,
+	);
 	console.log('Creating day file...');
-	const dayTemplateContent = await fs.readFile(path.join(directoryPath, 'template.js'), 'utf8');
+	const dayTemplateContent = await fs.readFile(
+		path.join(directoryPath, 'template.js'),
+		'utf8',
+	);
 	await fs.writeFile(dayFilePath, dayTemplateContent);
-	console.log(logSymbols.success, `Created day file (\`./solutions/${yearInput}/${dayNumber}/${dayNumber}.js\`)`);
+	console.log(
+		logSymbols.success,
+		`Created day file (\`./solutions/${yearInput}/${dayNumber}/${dayNumber}.js\`)`,
+	);
 }
 
 const inputFileExists = await fileExists(dayInputFilePath);

@@ -12,23 +12,21 @@ const games = input
 	.map(line => {
 		const regexMatch = line.match(gameRegex);
 		const gameId = Number(regexMatch[1]);
-		const gameCubeSets = regexMatch[2]
-			.split(';')
-			.map(set => {
-				const splittedSet = set.split(',');
-				const cubes = splittedSet.map(cube => {
-					const splittedCube = cube.trim().split(' ');
-					return {[splittedCube[1]]: Number(splittedCube[0])};
-				});
-				const combinedCubes = {};
-
-				for (const cube of cubes) {
-					const color = Object.keys(cube)[0];
-					const number = cube[color];
-					combinedCubes[color] = number;
-				}
-				return combinedCubes;
+		const gameCubeSets = regexMatch[2].split(';').map(set => {
+			const splittedSet = set.split(',');
+			const cubes = splittedSet.map(cube => {
+				const splittedCube = cube.trim().split(' ');
+				return {[splittedCube[1]]: Number(splittedCube[0])};
 			});
+			const combinedCubes = {};
+
+			for (const cube of cubes) {
+				const color = Object.keys(cube)[0];
+				const number = cube[color];
+				combinedCubes[color] = number;
+			}
+			return combinedCubes;
+		});
 		return {
 			gameId,
 			gameCubeSets,
@@ -70,16 +68,20 @@ for (const game of games) {
 
 	for (const gameCubeSet of game.gameCubeSets) {
 		for (const color of Object.keys(gameCubeSet)) {
-			currentFewestPossibleCubes[color] = currentFewestPossibleCubes[color] ? Math.max(
-				currentFewestPossibleCubes[color],
-				gameCubeSet[color],
-			) : gameCubeSet[color];
+			currentFewestPossibleCubes[color] = currentFewestPossibleCubes[color]
+				? Math.max(currentFewestPossibleCubes[color], gameCubeSet[color])
+				: gameCubeSet[color];
 		}
 	}
 
-	const powerOfCubes = Object.values(currentFewestPossibleCubes)
-		.reduce((accumulator, current) => accumulator * current, 1);
+	const powerOfCubes = Object.values(currentFewestPossibleCubes).reduce(
+		(accumulator, current) => accumulator * current,
+		1,
+	);
 	sumFewestPossibleCubes += powerOfCubes;
 }
 
-console.log('The sum of fewest possible cubes for each game:', sumFewestPossibleCubes);
+console.log(
+	'The sum of fewest possible cubes for each game:',
+	sumFewestPossibleCubes,
+);

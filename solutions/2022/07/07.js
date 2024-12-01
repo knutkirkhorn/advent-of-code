@@ -6,9 +6,7 @@ import {readInput, sum} from '../../../util.js';
 const directoryPath = path.dirname(fileURLToPath(import.meta.url));
 const input = await readInput(directoryPath);
 
-const lines = input
-	.split('\n')
-	.filter(line => line !== '');
+const lines = input.split('\n').filter(line => line !== '');
 
 function updateDeep(currentObject, line, currentDirectoryPath) {
 	if (currentDirectoryPath.length === 1) {
@@ -78,14 +76,21 @@ function sumDirectory(directory, parent) {
 }
 
 const usedSpace = sumDirectory(fileSystem['/'], '/');
-console.log('Sum of directories below 100k size:', sum(directoriesMost100k.map(directory => directory.size)));
+console.log(
+	'Sum of directories below 100k size:',
+	sum(directoriesMost100k.map(directory => directory.size)),
+);
 
 const totalSpace = 70_000_000;
 const minimumAvailableSpace = 30_000_000;
 const availableSpace = totalSpace - usedSpace;
 const neededSpace = minimumAvailableSpace - availableSpace;
-const sortedSummedDirectories = directoriesWithSummedSizes.sort((a, b) => b.size - a.size);
+const sortedSummedDirectories = directoriesWithSummedSizes.sort(
+	(a, b) => b.size - a.size,
+);
 
 // Smallest directory with needed space
-const directoryToDelete = sortedSummedDirectories.reverse().find(directory => directory.size >= neededSpace);
+const directoryToDelete = sortedSummedDirectories
+	.reverse()
+	.find(directory => directory.size >= neededSpace);
 console.log('Directory to delete:', directoryToDelete);

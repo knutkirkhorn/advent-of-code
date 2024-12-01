@@ -5,9 +5,7 @@ import {readInput} from '../../../util.js';
 const directoryPath = path.dirname(fileURLToPath(import.meta.url));
 const input = await readInput(directoryPath);
 
-const lines = input
-	.trim()
-	.split('\n');
+const lines = input.trim().split('\n');
 
 let sumCalibrationValues = 0;
 
@@ -81,4 +79,7 @@ for (const line of lines) {
 	sumAllCalibrationValues += Number(combinedNumber);
 }
 
-console.log('Sum of calibration values including spelled out numbers:', sumAllCalibrationValues);
+console.log(
+	'Sum of calibration values including spelled out numbers:',
+	sumAllCalibrationValues,
+);

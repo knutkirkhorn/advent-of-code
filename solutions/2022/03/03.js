@@ -14,9 +14,15 @@ function convertCharToPriority(char) {
 }
 
 const priorities = rucksackContents.map(rucksackContent => {
-	const firstHalf = rucksackContent.slice(0, rucksackContent.length / 2).split('');
-	const secondHalf = rucksackContent.slice(rucksackContent.length / 2, rucksackContent.length).split('');
-	const commonItemType = firstHalf.find(itemType => secondHalf.includes(itemType));
+	const firstHalf = rucksackContent
+		.slice(0, rucksackContent.length / 2)
+		.split('');
+	const secondHalf = rucksackContent
+		.slice(rucksackContent.length / 2, rucksackContent.length)
+		.split('');
+	const commonItemType = firstHalf.find(itemType =>
+		secondHalf.includes(itemType),
+	);
 	const itemPriority = convertCharToPriority(commonItemType);
 	return itemPriority;
 });

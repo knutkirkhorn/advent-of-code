@@ -47,11 +47,18 @@ function printCrtRow(startIndex, endIndex) {
 	const crtPixels = [];
 	let crtCounter = 0;
 
-	for (let index = 1; index <= Object.entries(registerValues).slice(startIndex, endIndex).length; index++, crtCounter++) {
+	for (
+		let index = 1;
+		index <= Object.entries(registerValues).slice(startIndex, endIndex).length;
+		index++, crtCounter++
+	) {
 		const currentRegisterValue = registerValues[index + startIndex];
 
 		// Check if CRT counter is inside the sprite
-		if (currentRegisterValue <= crtCounter + 1 && currentRegisterValue >= crtCounter - 1) {
+		if (
+			currentRegisterValue <= crtCounter + 1 &&
+			currentRegisterValue >= crtCounter - 1
+		) {
 			crtPixels.push('#');
 		} else {
 			crtPixels.push('.');
@@ -63,6 +70,10 @@ function printCrtRow(startIndex, endIndex) {
 
 console.log('CRT output:');
 
-for (let index = 0; index < Object.entries(registerValues).length; index += 40) {
+for (
+	let index = 0;
+	index < Object.entries(registerValues).length;
+	index += 40
+) {
 	console.log(printCrtRow(index, index + 40));
 }

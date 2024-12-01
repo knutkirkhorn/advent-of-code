@@ -1,7 +1,8 @@
-import path from 'node:path';
 import {promises as fs} from 'node:fs';
+import path from 'node:path';
 
-export const sum = array => array.reduce((previous, current) => previous + current, 0);
+export const sum = array =>
+	array.reduce((previous, current) => previous + current, 0);
 
 export async function readInput(directoryPath) {
 	const inputPath = path.join(directoryPath, 'input.txt');

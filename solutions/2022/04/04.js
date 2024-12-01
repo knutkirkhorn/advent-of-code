@@ -8,13 +8,19 @@ const fileContent = await readInput(directoryPath);
 const pairs = fileContent
 	.split('\n')
 	.filter(line => line !== '')
-	.map(pair => pair.split(',').map(sections => sections.split('-').map(Number)));
-const fullyContainingAssignmentPairs = pairs.filter(pair => (
-	(pair[0][0] >= pair[1][0] && pair[0][1] <= pair[1][1])
-	|| (pair[0][0] <= pair[1][0] && pair[0][1] >= pair[1][1])
-)).length;
+	.map(pair =>
+		pair.split(',').map(sections => sections.split('-').map(Number)),
+	);
+const fullyContainingAssignmentPairs = pairs.filter(
+	pair =>
+		(pair[0][0] >= pair[1][0] && pair[0][1] <= pair[1][1]) ||
+		(pair[0][0] <= pair[1][0] && pair[0][1] >= pair[1][1]),
+).length;
 
-console.log('Fully containing assignment pairs:', fullyContainingAssignmentPairs);
+console.log(
+	'Fully containing assignment pairs:',
+	fullyContainingAssignmentPairs,
+);
 
 function rangeToArray(range) {
 	const array = [];
@@ -29,6 +35,12 @@ function rangeToArray(range) {
 const partlyContainingAssignmentPairs = pairs.filter(pair => {
 	const firstRange = rangeToArray(pair[0]);
 	const secondRange = rangeToArray(pair[1]);
-	return firstRange.find(item => secondRange.includes(item)) || secondRange.find(item => firstRange.includes(item));
+	return (
+		firstRange.find(item => secondRange.includes(item)) ||
+		secondRange.find(item => firstRange.includes(item))
+	);
 }).length;
-console.log('Partly containing assignment pairs:', partlyContainingAssignmentPairs);
+console.log(
+	'Partly containing assignment pairs:',
+	partlyContainingAssignmentPairs,
+);

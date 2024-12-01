@@ -9,14 +9,26 @@ const monkeys = input
 	.trim()
 	.split('\n\n')
 	.map(monkeyInput => {
-		const newMonkeyObject = monkeyInput.split('\n')
+		const newMonkeyObject = monkeyInput
+			.split('\n')
 			.map(currentInput => currentInput.trim());
 
-		const items = newMonkeyObject[1].split('Starting items: ')[1].split(', ').map(Number);
-		const [type, amount] = newMonkeyObject[2].split('Operation: new = old ')[1].split(' ');
-		const divisibleBy = Number(newMonkeyObject[3].split('Test: divisible by ')[1]);
-		const divisibleTrue = Number(newMonkeyObject[4].split('If true: throw to monkey ')[1]);
-		const divisibleFalse = Number(newMonkeyObject[5].split('If false: throw to monkey ')[1]);
+		const items = newMonkeyObject[1]
+			.split('Starting items: ')[1]
+			.split(', ')
+			.map(Number);
+		const [type, amount] = newMonkeyObject[2]
+			.split('Operation: new = old ')[1]
+			.split(' ');
+		const divisibleBy = Number(
+			newMonkeyObject[3].split('Test: divisible by ')[1],
+		);
+		const divisibleTrue = Number(
+			newMonkeyObject[4].split('If true: throw to monkey ')[1],
+		);
+		const divisibleFalse = Number(
+			newMonkeyObject[5].split('If false: throw to monkey ')[1],
+		);
 
 		return {
 			items,
@@ -71,6 +83,10 @@ for (let round = 0; round < 20; round++) {
 	}
 }
 
-const twoMonkeysWithMostInspections = monkeys.sort((a, b) => b.inspections - a.inspections).slice(0, 2);
-const monkeyBusiness = twoMonkeysWithMostInspections[0].inspections * twoMonkeysWithMostInspections[1].inspections;
+const twoMonkeysWithMostInspections = monkeys
+	.sort((a, b) => b.inspections - a.inspections)
+	.slice(0, 2);
+const monkeyBusiness =
+	twoMonkeysWithMostInspections[0].inspections *
+	twoMonkeysWithMostInspections[1].inspections;
 console.log('Monkey business:', monkeyBusiness);

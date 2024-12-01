@@ -50,7 +50,8 @@ for (const [index, scratchCard] of scratchCards.entries()) {
 			matchingNumbers++;
 			const wonCardIndex = currentGameIndex + matchingNumbers;
 			const currentNumberOfWonCard = numberOfEachCard[wonCardIndex] || 1;
-			numberOfEachCard[wonCardIndex] = currentNumberOfWonCard + numberOfCurrentCard;
+			numberOfEachCard[wonCardIndex] =
+				currentNumberOfWonCard + numberOfCurrentCard;
 		}
 	}
 }

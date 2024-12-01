@@ -19,23 +19,59 @@ function isCharacterSymbol(character) {
 function isNumberAdjacentToSymbol(xPosition, yPosition) {
 	// Check direct neighbors
 	// Check left
-	if (xPosition > 0 && isCharacterSymbol(engineSchematic[yPosition][xPosition - 1])) return true;
+	if (
+		xPosition > 0 &&
+		isCharacterSymbol(engineSchematic[yPosition][xPosition - 1])
+	)
+		return true;
 	// Check right
-	if (xPosition < engineSchematic[yPosition].length - 1 && isCharacterSymbol(engineSchematic[yPosition][xPosition + 1])) return true;
+	if (
+		xPosition < engineSchematic[yPosition].length - 1 &&
+		isCharacterSymbol(engineSchematic[yPosition][xPosition + 1])
+	)
+		return true;
 	// Check above
-	if (yPosition > 0 && isCharacterSymbol(engineSchematic[yPosition - 1][xPosition])) return true;
+	if (
+		yPosition > 0 &&
+		isCharacterSymbol(engineSchematic[yPosition - 1][xPosition])
+	)
+		return true;
 	// Check below
-	if (yPosition < engineSchematic.length - 1 && isCharacterSymbol(engineSchematic[yPosition + 1][xPosition])) return true;
+	if (
+		yPosition < engineSchematic.length - 1 &&
+		isCharacterSymbol(engineSchematic[yPosition + 1][xPosition])
+	)
+		return true;
 
 	// Check diagonally neighbors
 	// Check top left
-	if (yPosition > 0 && xPosition > 0 && isCharacterSymbol(engineSchematic[yPosition - 1][xPosition - 1])) return true;
+	if (
+		yPosition > 0 &&
+		xPosition > 0 &&
+		isCharacterSymbol(engineSchematic[yPosition - 1][xPosition - 1])
+	)
+		return true;
 	// Check top right
-	if (yPosition > 0 && xPosition < engineSchematic[yPosition].length - 1 && isCharacterSymbol(engineSchematic[yPosition - 1][xPosition + 1])) return true;
+	if (
+		yPosition > 0 &&
+		xPosition < engineSchematic[yPosition].length - 1 &&
+		isCharacterSymbol(engineSchematic[yPosition - 1][xPosition + 1])
+	)
+		return true;
 	// Check bottom left
-	if (yPosition < engineSchematic.length - 1 && xPosition > 0 && isCharacterSymbol(engineSchematic[yPosition + 1][xPosition - 1])) return true;
+	if (
+		yPosition < engineSchematic.length - 1 &&
+		xPosition > 0 &&
+		isCharacterSymbol(engineSchematic[yPosition + 1][xPosition - 1])
+	)
+		return true;
 	// Check bottom right
-	if (yPosition < engineSchematic.length - 1 && xPosition < engineSchematic[yPosition].length - 1 && isCharacterSymbol(engineSchematic[yPosition + 1][xPosition + 1])) return true;
+	if (
+		yPosition < engineSchematic.length - 1 &&
+		xPosition < engineSchematic[yPosition].length - 1 &&
+		isCharacterSymbol(engineSchematic[yPosition + 1][xPosition + 1])
+	)
+		return true;
 
 	return false;
 }
@@ -50,37 +86,65 @@ function getAdjacentAsterisks(xPosition, yPosition) {
 	const adjacentAsterisks = [];
 	// Check direct neighbors
 	// Check left
-	if (xPosition > 0 && isCharacterAsterisk(engineSchematic[yPosition][xPosition - 1])) {
+	if (
+		xPosition > 0 &&
+		isCharacterAsterisk(engineSchematic[yPosition][xPosition - 1])
+	) {
 		adjacentAsterisks.push({x: xPosition - 1, y: yPosition});
 	}
 	// Check right
-	if (xPosition < engineSchematic[yPosition].length - 1 && isCharacterAsterisk(engineSchematic[yPosition][xPosition + 1])) {
+	if (
+		xPosition < engineSchematic[yPosition].length - 1 &&
+		isCharacterAsterisk(engineSchematic[yPosition][xPosition + 1])
+	) {
 		adjacentAsterisks.push({x: xPosition + 1, y: yPosition});
 	}
 	// Check above
-	if (yPosition > 0 && isCharacterAsterisk(engineSchematic[yPosition - 1][xPosition])) {
+	if (
+		yPosition > 0 &&
+		isCharacterAsterisk(engineSchematic[yPosition - 1][xPosition])
+	) {
 		adjacentAsterisks.push({x: xPosition, y: yPosition - 1});
 	}
 	// Check below
-	if (yPosition < engineSchematic.length - 1 && isCharacterAsterisk(engineSchematic[yPosition + 1][xPosition])) {
+	if (
+		yPosition < engineSchematic.length - 1 &&
+		isCharacterAsterisk(engineSchematic[yPosition + 1][xPosition])
+	) {
 		adjacentAsterisks.push({x: xPosition, y: yPosition + 1});
 	}
 
 	// Check diagonally neighbors
 	// Check top left
-	if (yPosition > 0 && xPosition > 0 && isCharacterAsterisk(engineSchematic[yPosition - 1][xPosition - 1])) {
+	if (
+		yPosition > 0 &&
+		xPosition > 0 &&
+		isCharacterAsterisk(engineSchematic[yPosition - 1][xPosition - 1])
+	) {
 		adjacentAsterisks.push({x: xPosition - 1, y: yPosition - 1});
 	}
 	// Check top right
-	if (yPosition > 0 && xPosition < engineSchematic[yPosition].length - 1 && isCharacterAsterisk(engineSchematic[yPosition - 1][xPosition + 1])) {
+	if (
+		yPosition > 0 &&
+		xPosition < engineSchematic[yPosition].length - 1 &&
+		isCharacterAsterisk(engineSchematic[yPosition - 1][xPosition + 1])
+	) {
 		adjacentAsterisks.push({x: xPosition + 1, y: yPosition - 1});
 	}
 	// Check bottom left
-	if (yPosition < engineSchematic.length - 1 && xPosition > 0 && isCharacterAsterisk(engineSchematic[yPosition + 1][xPosition - 1])) {
+	if (
+		yPosition < engineSchematic.length - 1 &&
+		xPosition > 0 &&
+		isCharacterAsterisk(engineSchematic[yPosition + 1][xPosition - 1])
+	) {
 		adjacentAsterisks.push({x: xPosition - 1, y: yPosition + 1});
 	}
 	// Check bottom right
-	if (yPosition < engineSchematic.length - 1 && xPosition < engineSchematic[yPosition].length - 1 && isCharacterAsterisk(engineSchematic[yPosition + 1][xPosition + 1])) {
+	if (
+		yPosition < engineSchematic.length - 1 &&
+		xPosition < engineSchematic[yPosition].length - 1 &&
+		isCharacterAsterisk(engineSchematic[yPosition + 1][xPosition + 1])
+	) {
 		adjacentAsterisks.push({x: xPosition + 1, y: yPosition + 1});
 	}
 
@@ -97,7 +161,10 @@ for (const [yPosition, line] of engineSchematic.entries()) {
 		if (Number.isInteger(Number(character))) {
 			currentNumber = `${currentNumber || ''}${character}`;
 
-			const isCurrentCharacterAdjacentToSymbol = isNumberAdjacentToSymbol(xPosition, yPosition);
+			const isCurrentCharacterAdjacentToSymbol = isNumberAdjacentToSymbol(
+				xPosition,
+				yPosition,
+			);
 			if (isCurrentCharacterAdjacentToSymbol) {
 				isCurrentNumberAdjacentToSymbol = true;
 			}
@@ -133,7 +200,10 @@ for (const [yPosition, line] of engineSchematic.entries()) {
 	for (const [xPosition, character] of line.entries()) {
 		if (Number.isInteger(Number(character))) {
 			currentNumber = `${currentNumber || ''}${character}`;
-			const currentAdjacentAsterisks = getAdjacentAsterisks(xPosition, yPosition);
+			const currentAdjacentAsterisks = getAdjacentAsterisks(
+				xPosition,
+				yPosition,
+			);
 			adjacentAsterisks.push(...currentAdjacentAsterisks);
 			continue;
 		}

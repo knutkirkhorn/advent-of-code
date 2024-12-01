@@ -41,9 +41,12 @@ function calculateScoreRoundOne(round) {
 	return outcomeScore + shapeScore;
 }
 
-const scoreOne = sum(fileContent.split('\n')
-	.filter(line => line !== '')
-	.map(round => calculateScoreRoundOne(round)));
+const scoreOne = sum(
+	fileContent
+		.split('\n')
+		.filter(line => line !== '')
+		.map(round => calculateScoreRoundOne(round)),
+);
 console.log('Score round 1:', scoreOne);
 
 const outcomeDifference = {
@@ -67,7 +70,10 @@ function calculateScoreRoundTwo(round) {
 	return outcomeScore + shapeScore;
 }
 
-const scoreTwo = sum(fileContent.split('\n')
-	.filter(line => line !== '')
-	.map(round => calculateScoreRoundTwo(round)));
+const scoreTwo = sum(
+	fileContent
+		.split('\n')
+		.filter(line => line !== '')
+		.map(round => calculateScoreRoundTwo(round)),
+);
 console.log('Score round 2:', scoreTwo);

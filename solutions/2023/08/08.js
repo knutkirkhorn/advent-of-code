@@ -6,9 +6,7 @@ import {readInput} from '../../../util.js';
 const directoryPath = path.dirname(fileURLToPath(import.meta.url));
 const input = await readInput(directoryPath);
 
-const lines = input
-	.trim()
-	.split('\n\n');
+const lines = input.trim().split('\n\n');
 const directions = lines[0];
 const mapLines = lines[1].split('\n');
 const nodes = {};
@@ -26,9 +24,8 @@ let steps = 0;
 
 while (currentNode !== 'ZZZ') {
 	for (const direction of directions) {
-		currentNode = direction === 'R'
-			? nodes[currentNode].right
-			: nodes[currentNode].left;
+		currentNode =
+			direction === 'R' ? nodes[currentNode].right : nodes[currentNode].left;
 		steps++;
 		if (currentNode === 'ZZZ') {
 			break;
@@ -48,9 +45,10 @@ for (const node of startingOnANodes) {
 
 	while (!currentStartingOnANode.endsWith('Z')) {
 		for (const direction of directions) {
-			currentStartingOnANode = direction === 'R'
-				? nodes[currentStartingOnANode].right
-				: nodes[currentStartingOnANode].left;
+			currentStartingOnANode =
+				direction === 'R'
+					? nodes[currentStartingOnANode].right
+					: nodes[currentStartingOnANode].left;
 			currentSteps++;
 			if (currentStartingOnANode.endsWith('Z')) {
 				break;
@@ -68,5 +66,8 @@ function leastCommonMultiple(a, b) {
 }
 
 // eslint-disable-next-line unicorn/no-array-reduce
-steps = sortedEndingWithZSteps.reduce((a, b) => leastCommonMultiple(a, b), sortedEndingWithZSteps[0]);
+steps = sortedEndingWithZSteps.reduce(
+	(a, b) => leastCommonMultiple(a, b),
+	sortedEndingWithZSteps[0],
+);
 console.log('Steps required for all nodes to end on Z:', steps);

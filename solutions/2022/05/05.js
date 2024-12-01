@@ -37,7 +37,9 @@ for (const rearrangement of rearrangements) {
 	}
 }
 
-const rearrangedTopCrates = Object.values(arrangedStacks).map(stack => stack.at(-1)).join('');
+const rearrangedTopCrates = Object.values(arrangedStacks)
+	.map(stack => stack.at(-1))
+	.join('');
 console.log('Rearranged top crates:', rearrangedTopCrates);
 
 const multipleArrangedStacks = {};
@@ -47,7 +49,8 @@ for (const stack of stacks.slice(1)) {
 		if (stack[i] === ' ') continue;
 
 		// Create array if not set already
-		if (multipleArrangedStacks[counter] === undefined) multipleArrangedStacks[counter] = [];
+		if (multipleArrangedStacks[counter] === undefined)
+			multipleArrangedStacks[counter] = [];
 
 		multipleArrangedStacks[counter].push(stack[i]);
 	}
@@ -58,10 +61,18 @@ for (const rearrangement of rearrangements) {
 	const from = rearrangement.split('from ')[1].split(' ')[0];
 	const to = rearrangement.split('to ')[1].split(' ')[0];
 
-	const movingElements = multipleArrangedStacks[from].slice(multipleArrangedStacks[from].length - amount, multipleArrangedStacks[from].length);
+	const movingElements = multipleArrangedStacks[from].slice(
+		multipleArrangedStacks[from].length - amount,
+		multipleArrangedStacks[from].length,
+	);
 	multipleArrangedStacks[to].push(...movingElements);
-	multipleArrangedStacks[from].splice(multipleArrangedStacks[from].length - amount, multipleArrangedStacks[from].length);
+	multipleArrangedStacks[from].splice(
+		multipleArrangedStacks[from].length - amount,
+		multipleArrangedStacks[from].length,
+	);
 }
 
-const multipleRearrangedTopCrates = Object.values(multipleArrangedStacks).map(stack => stack.at(-1)).join('');
+const multipleRearrangedTopCrates = Object.values(multipleArrangedStacks)
+	.map(stack => stack.at(-1))
+	.join('');
 console.log('Multiple rearranged top crates:', multipleRearrangedTopCrates);
