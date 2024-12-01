@@ -19,7 +19,7 @@ node index.js 1
 node index.js 2022 1
 
 # Rerun on file change
-npm run dev
+bun dev
 ```
 
 ## Solutions
