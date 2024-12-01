@@ -24,6 +24,10 @@ bun dev
 
 ## Solutions
 
+### 2024
+
+- [Day 1: Historian Hysteria](solutions/2024/01/01.js)
+
 ### 2023
 
 - [Day 1: Trebuchet?!](solutions/2023/01/01.js)
