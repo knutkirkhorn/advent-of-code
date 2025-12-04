@@ -3,7 +3,6 @@ import {fork} from 'node:child_process';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-// eslint-disable-next-line import/no-unresolved
 import got from 'got';
 import logSymbols from 'log-symbols';
 import makeDir from 'make-dir';
