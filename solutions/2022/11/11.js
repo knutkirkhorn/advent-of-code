@@ -52,17 +52,21 @@ for (let round = 0; round < 20; round++) {
 			let newWorryLevel;
 
 			switch (monkey.operation.type) {
-				case '*':
+				case '*': {
 					newWorryLevel = item * monkey.operation.amount;
 					break;
-				case '+':
+				}
+				case '+': {
 					newWorryLevel = item + monkey.operation.amount;
 					break;
-				case '**':
+				}
+				case '**': {
 					newWorryLevel = item * item;
 					break;
-				default:
+				}
+				default: {
 					throw new Error('Unsupported operation type');
+				}
 			}
 
 			// Monkey is bored of item
@@ -84,7 +88,7 @@ for (let round = 0; round < 20; round++) {
 }
 
 const twoMonkeysWithMostInspections = monkeys
-	.sort((a, b) => b.inspections - a.inspections)
+	.toSorted((a, b) => b.inspections - a.inspections)
 	.slice(0, 2);
 const monkeyBusiness =
 	twoMonkeysWithMostInspections[0].inspections *

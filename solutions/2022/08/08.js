@@ -125,7 +125,7 @@ for (let i = 1; i < treeGrid.length - 1; i++) {
 	}
 }
 
-const sortedScenicScores = scenicScores.sort(
+const sortedScenicScores = scenicScores.toSorted(
 	(a, b) => b.scenicScore - a.scenicScore,
 );
 console.log('Highest scenic score:', sortedScenicScores[0]);

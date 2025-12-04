@@ -59,7 +59,7 @@ for (const node of startingOnANodes) {
 	endingWithZSteps.push(currentSteps);
 }
 
-const sortedEndingWithZSteps = endingWithZSteps.sort((a, b) => a - b);
+const sortedEndingWithZSteps = endingWithZSteps.toSorted((a, b) => a - b);
 
 function leastCommonMultiple(a, b) {
 	return (a * b) / gcd(a, b);

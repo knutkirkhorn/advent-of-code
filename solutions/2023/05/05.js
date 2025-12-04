@@ -23,7 +23,7 @@ function convertInputToMap(seedMapInput) {
 }
 
 const seedMaps = seedMap
-	.slice(1, seedMap.length)
+	.slice(1)
 	.map(currentSeedMap => convertInputToMap(currentSeedMap));
 
 function findSeedLocationNumber(seed) {

@@ -14,7 +14,7 @@ for await (const line of file.readLines()) {
 	}
 }
 
-const sortedCalories = elfCalories.sort((a, b) => b - a);
+const sortedCalories = elfCalories.toSorted((a, b) => b - a);
 const mostCarryingCalories = sortedCalories[0];
 console.log('Most carrying calories:', mostCarryingCalories);
 

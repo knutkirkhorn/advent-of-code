@@ -1,4 +1,3 @@
-/* eslint-disable no-continue */
 /* eslint-disable unicorn/prevent-abbreviations */
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -63,12 +62,10 @@ for (const rearrangement of rearrangements) {
 
 	const movingElements = multipleArrangedStacks[from].slice(
 		multipleArrangedStacks[from].length - amount,
-		multipleArrangedStacks[from].length,
 	);
 	multipleArrangedStacks[to].push(...movingElements);
 	multipleArrangedStacks[from].splice(
 		multipleArrangedStacks[from].length - amount,
-		multipleArrangedStacks[from].length,
 	);
 }
 

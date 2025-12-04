@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {readInput, sum} from '../../../util.js';
@@ -21,7 +20,7 @@ function updateDeep(currentObject, line, currentDirectoryPath) {
 		return;
 	}
 
-	const nextPath = currentDirectoryPath.slice(1, currentDirectoryPath.length);
+	const nextPath = currentDirectoryPath.slice(1);
 	updateDeep(currentObject[currentDirectoryPath[0]], line, nextPath);
 }
 
@@ -85,12 +84,12 @@ const totalSpace = 70_000_000;
 const minimumAvailableSpace = 30_000_000;
 const availableSpace = totalSpace - usedSpace;
 const neededSpace = minimumAvailableSpace - availableSpace;
-const sortedSummedDirectories = directoriesWithSummedSizes.sort(
+const sortedSummedDirectories = directoriesWithSummedSizes.toSorted(
 	(a, b) => b.size - a.size,
 );
 
 // Smallest directory with needed space
 const directoryToDelete = sortedSummedDirectories
-	.reverse()
+	.toReversed()
 	.find(directory => directory.size >= neededSpace);
 console.log('Directory to delete:', directoryToDelete);

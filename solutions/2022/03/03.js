@@ -18,7 +18,7 @@ const priorities = rucksackContents.map(rucksackContent => {
 		.slice(0, rucksackContent.length / 2)
 		.split('');
 	const secondHalf = rucksackContent
-		.slice(rucksackContent.length / 2, rucksackContent.length)
+		.slice(rucksackContent.length / 2)
 		.split('');
 	const commonItemType = firstHalf.find(itemType =>
 		secondHalf.includes(itemType),
